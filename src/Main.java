@@ -22,9 +22,11 @@ public class Main
             return o1.getSalary().compareTo(o2.getSalary());
         }));
 
-        for (Employee a : staff){
-            System.out.println(a.toString());
-    }
+        System.out.print("Работник с самой блоьшой зарплатой в 2017г. ( ");  // Максимальная зарплата в 2017г.
+        staff.stream().filter(e -> e.getWorkStart().getYear() == 117)
+                      .max(Comparator.comparing(Employee::getSalary))
+                      .ifPresent(System.out::print);
+        System.out.print(" )");
     }
 
     private static ArrayList<Employee> loadStaffFromFile()
