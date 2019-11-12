@@ -13,7 +13,7 @@ public class Main
     public static void main(String[] args)
     {
         ArrayList<Employee> staff = loadStaffFromFile();
-
+        System.out.println("  Задание №1");
         Collections.sort(staff, ((o1, o2) -> {
 
             if((o1.getSalary().compareTo(o2.getSalary()) == 0)){
@@ -22,6 +22,19 @@ public class Main
             return o1.getSalary().compareTo(o2.getSalary());
         }));
 
+        for (Employee e: staff){
+            System.out.println(e);
+        }
+
+        //Можно через стрим сделать
+
+        /*staff.stream().sorted((e1, e2) -> {
+            if((e1.getSalary().compareTo(e2.getSalary()) == 0)){
+                return e1.getName().compareToIgnoreCase(e2.getName());
+            }
+            return e1.getSalary().compareTo(e2.getSalary());
+        }).forEach(System.out::println);*/
+        System.out.println("\n  Задание №2");
         System.out.print("Работник с самой блоьшой зарплатой в 2017г. ( ");  // Максимальная зарплата в 2017г.
         staff.stream().filter(e -> e.getWorkStart().getYear() == 117)
                       .max(Comparator.comparing(Employee::getSalary))
