@@ -34,6 +34,7 @@ public class Main
             }
             return e1.getSalary().compareTo(e2.getSalary());
         }).forEach(System.out::println);*/
+
         System.out.println("\n  Задание №2");
         System.out.print("Работник с самой блоьшой зарплатой в 2017г. ( ");  // Максимальная зарплата в 2017г.
         staff.stream().filter(e -> e.getWorkStart().getYear() == 117)
