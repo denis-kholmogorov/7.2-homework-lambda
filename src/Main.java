@@ -13,7 +13,14 @@ public class Main
         ArrayList<Employee> staff = loadStaffFromFile();
         System.out.println("  Задание №1");
         Collections.sort(staff, Comparator.comparing(Employee::getSalary).thenComparing(Employee::getName));
-        /*
+
+        for (Employee e: staff){
+            System.out.println(e);
+        }
+
+        //Можно через стрим сделать
+
+         /*
         Collections.sort(staff, ((o1, o2) -> {
 
             if((o1.getSalary().compareTo(o2.getSalary()) == 0)){
@@ -21,12 +28,6 @@ public class Main
             }
             return o1.getSalary().compareTo(o2.getSalary());
         }));*/
-
-        for (Employee e: staff){
-            System.out.println(e);
-        }
-
-        //Можно через стрим сделать
 
         /*staff.stream().sorted((e1, e2) -> {
             if((e1.getSalary().compareTo(e2.getSalary()) == 0)){
